@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
-    <title>Рецепты</title>
-</head>
-<body>
-{% for ingredient, amount in recipe.items %}
-    <p>{{ ingredient }}: {{ amount }}</p>
-{% empty %}
-    <p>Такого рецепта не знаю :(</p>
-{% endfor %}
-<a href = "/">На главную</a>
+    <title>Рецепт</title>
+{% extends 'calculator/main_block.html' %}
+    {% block content %}
+    <a href = "/">На главную</a>
+    {% if dish%}
+    <table class="table table-primary table-hover">
+        <thead>
+        <tr>
+         <th scope="col">№</th>
+         <th scope="col">Ингридиент</th>
+         <th scope="col">Количество</th>
+        </tr> 
+        </thead> 
+        <tbody>        
+            {% for ingredient, amount in dish.items %}
+            <tr>            
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ ingredient }}</td>
+                <td>{{ amount }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>Такого рецепта не знаю :(</p>
+    {%endif%}
+{% endblock %}
+
 </body>
+
 </html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Меню</title>
+{% extends 'calculator/main_block.html' %}
+{% block content %}
+    {% for dish in menu %}
+        <p>
+            <a href="{{ dish }}">
+                {{ dish }}
+            </a>
+        </p>
+    {% endfor %}
+{% endblock %}
+</body>
+
+</html>
