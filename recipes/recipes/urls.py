@@ -14,14 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.urls import path
-from calculator.views import home, buter, omlet, pasta, hod_dog, mack_chicken
+from django.urls import path, include
+
 
 urlpatterns = [
-    path('', home, name='home'),
-    path('buter/', buter, name='buter'),
-    path('omlet/', omlet, name='omlet'),
-    path('pasta/', pasta, name='pasta'),
-    path('hod_dog/', hod_dog, name='hod_dog'),
-    path('mack_chicken/', mack_chicken, name='mack_chicken'),
+    path('', include('calculator.urls'))
     ]
